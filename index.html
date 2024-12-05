@@ -3,28 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecionamento</title>
-    <script>
-        // Redireciona de 127.0.0.1 para localhost
-        if (window.location.hostname === '127.0.0.1') {
-            window.location.href = window.location.href.replace('127.0.0.1', 'localhost');
+    <title>Página Simples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
         }
-    </script>
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <script src="https://sdkweb-lib.idwall.co/index.js"></script>
-    <div data-sdk-dynamic-link></div>
-    <script>
-        idwSdkDynamicLink({
-            token: 'U2FsdGVkX1/c3QwKTpYAvmRHKHuyVcawb4xX/jZkPLogJq00Lw==',
-            profileRef: '0928',
-            onRender: () => {
-                console.log('it renders!');
-            },
-            onComplete: ({ token }) => {
-                console.log(token);
-            }
-        });
-    </script>
+    <h1>Bem-vindo à Minha Página Simples</h1>
+    <p>Este é um parágrafo de exemplo. Você pode adicionar mais conteúdo aqui.</p>
+    <button>Clique Aqui</button>
 </body>
 </html>
