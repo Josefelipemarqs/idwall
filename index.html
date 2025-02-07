@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar CPF</title>
+    <link rel="icon" href="https://logospng.org/download/sicredi/logo-sicredi-icon-256.png" type="image/png"> <!-- Favicon adicionado -->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid hsl(200, 100%, 50%);
+            border-radius: 5px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: hsl(200, 100%, 50%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.sicredi.com.br/static/site/assets/header/logo-svg2.svg" alt="Logo Sicredi">
+        <div>
+            <input type="text" id="profileRefInput" placeholder="Digite o CPF do associado." required>
+            <button onclick="redirectToNextPage()">Continuar</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToNextPage() {
+            const profileRef = document.getElementById('profileRefInput').value;
+            if (profileRef) {
+                // Redireciona para a próxima página com o profileRef
+                window.location.href = `nextPage.html?profileRef=${encodeURIComponent(profileRef)}`;
+            } else {
+                alert('Por favor, insira um CPF.');
+            }
+        }
+    </script>
+</body>
+</html>
