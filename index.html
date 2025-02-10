@@ -58,6 +58,19 @@
             cursor: pointer;
             border-radius: 5px;
         }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -69,13 +82,23 @@
     <div class="container">
         <h2>Bem-vindo ao Sicredi</h2>
         <p>Descubra nossos serviços e soluções financeiras.</p>
-        <button class="button" onclick="openPopup()">Saiba Mais</button>
+        <button class="button" onclick="openPopup()">Criar Nova Documentação</button>
     </div>
 
     <div class="popup" id="popup">
         <div class="popup-content">
-            <h3>Informações Adicionais</h3>
-            <p>Aqui você pode encontrar mais informações sobre nossos serviços.</p>
+            <h3>Criar Nova Documentação</h3>
+            <form id="documentationForm">
+                <div class="form-group">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" name="description" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="button">Salvar Documentação</button>
+            </form>
             <button class="close" onclick="closePopup()">Fechar</button>
         </div>
     </div>
@@ -87,7 +110,16 @@
 
         function closePopup() {
             document.getElementById('popup').style.display = 'none';
+            document.getElementById('documentationForm').reset(); // Limpa o formulário ao fechar
         }
+
+        document.getElementById('documentationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            alert(`Documentação criada:\nTítulo: ${title}\nDescrição: ${description}`);
+            closePopup(); // Fecha o popup após salvar
+        });
     </script>
 
 </body>
